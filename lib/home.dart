@@ -73,7 +73,6 @@ class _MyHomeState extends State<MyHome> {
     return Scaffold(
       backgroundColor: Colors.black,
       extendBodyBehindAppBar: true,
-      drawer: const Drawer(),
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.transparent,
@@ -136,6 +135,7 @@ class _MyHomeState extends State<MyHome> {
             )
           ],
         )),
+
         collapsed: Center(
           child: Container(
             decoration: BoxDecoration(
@@ -202,6 +202,7 @@ class _MyHomeState extends State<MyHome> {
             ),
           ),
         ),
+
         body: Container(
           alignment: Alignment.center,
           margin: const EdgeInsets.only(top: 30),

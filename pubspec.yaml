@@ -41,6 +41,7 @@ dependencies:
   # sliding_sheet: ^0.5.2
   sliding_up_panel: ^2.0.0+1
   flutter_sliding_box: ^1.1.3
+  font_awesome_flutter: ^10.7.0
 
 dev_dependencies:
   flutter_test:
