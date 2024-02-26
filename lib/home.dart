@@ -16,19 +16,55 @@ class _MyHomeState extends State<MyHome> {
         Text(
           num,
           style: const TextStyle(
-            fontSize: 45,
+            fontSize: 47,
+            fontWeight: FontWeight.bold,
+            color: Colors.black87,
+            // fontFamily: String.fromEnvironment(name),
+            fontStyle: FontStyle.italic,
           ),
         ),
         Container(
-          margin: const EdgeInsets.only(top: 10),
+          margin: const EdgeInsets.only(top: 15),
           child: Text(
             text,
             style: const TextStyle(
               fontSize: 25,
+              color: Colors.black54,
+              fontStyle: FontStyle.italic,
             ),
           ),
         ),
       ],
+    );
+  }
+
+  _mySpecs(icon, tech) {
+    return SizedBox(
+      width: 145,
+      height: 160,
+      child: Card(
+        color: Colors.black,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              icon,
+              color: Colors.white,
+              size: 85,
+            ),
+            const SizedBox(
+              height: 0,
+            ),
+            Text(
+              tech,
+              style: const TextStyle(color: Colors.white, fontSize: 22),
+            ),
+          ],
+        ),
+      ),
     );
   }
 
@@ -48,23 +84,61 @@ class _MyHomeState extends State<MyHome> {
         borderRadius: BorderRadius.circular(30),
         panel: Center(
             child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
               padding: const EdgeInsets.only(top: 15),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  _myAchievment('3', 'Projects'),
-                  _myAchievment('4', 'Tech'),
+                  _myAchievment('03', 'Projects'),
+                  _myAchievment('04', 'Tech'),
                 ],
               ),
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            const Padding(
+              padding: EdgeInsets.only(left: 15),
+              child: Text(
+                'Specialized In',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 25,
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 15,
+            ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    _mySpecs(Icons.android_outlined, 'C++'),
+                    _mySpecs(Icons.android, 'Android'),
+                  ],
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    _mySpecs(Icons.android_outlined, 'Dart'),
+                    _mySpecs(Icons.android, 'Flutter'),
+                  ],
+                ),
+              ],
             )
           ],
         )),
         collapsed: Center(
           child: Container(
             decoration: BoxDecoration(
-              // color: const Color.fromARGB(255, 152, 195, 216),
               borderRadius: BorderRadius.circular(30),
             ),
             child: const Column(
@@ -128,77 +202,101 @@ class _MyHomeState extends State<MyHome> {
             ),
           ),
         ),
-        body: Center(
+        body: Container(
+          alignment: Alignment.center,
+          margin: const EdgeInsets.only(top: 30),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.network(
-                'https://content.presspage.com/uploads/1369/1920_olderblackperson-944175.jpg?10000',
-              ),
-              const SizedBox(
-                height: 37,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+              Stack(
                 children: [
-                  const Text(
-                    "S",
-                    style: TextStyle(
-                      fontSize: 45,
-                      color: Colors.white,
-                      fontStyle: FontStyle.italic,
-                      fontWeight: FontWeight.w500,
+                  ShaderMask(
+                    shaderCallback: (rect) {
+                      return const LinearGradient(
+                        begin: Alignment.center,
+                        end: Alignment.bottomCenter,
+                        colors: [Colors.black, Colors.transparent],
+                      ).createShader(
+                        Rect.fromLTRB(0, 0, rect.width, rect.height),
+                      );
+                    },
+                    blendMode: BlendMode.dstIn,
+                    child: Image.asset(
+                      'assets/figure/img.png',
+                      fit: BoxFit.fitWidth,
                     ),
                   ),
                   Container(
-                    margin: const EdgeInsets.only(top: 10),
-                    child: const Text(
-                      "ARANSH",
-                      style: TextStyle(
-                        fontSize: 25,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontStyle: FontStyle.italic,
-                      ),
-                    ),
-                  ),
-                  const Text(
-                    " J",
-                    style: TextStyle(
-                      fontSize: 45,
-                      color: Colors.white,
-                      fontStyle: FontStyle.italic,
-                      // fontWeight: FontWeight.bold,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                  Container(
-                    margin: const EdgeInsets.only(top: 10),
-                    child: const Text(
-                      "INDAL",
-                      style: TextStyle(
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                        fontStyle: FontStyle.italic,
-                      ),
+                    alignment: Alignment.center,
+                    margin: EdgeInsets.only(
+                        top: MediaQuery.of(context).size.height * 0.56),
+                    child: Column(
+                      children: [
+                        const Text(
+                          'Hello, I am',
+                          style: TextStyle(color: Colors.white, fontSize: 25),
+                        ),
+                        const SizedBox(
+                          height: 3,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Text(
+                              "S",
+                              style: TextStyle(
+                                fontSize: 55,
+                                color: Colors.white,
+                                fontStyle: FontStyle.italic,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                            Container(
+                              margin: const EdgeInsets.only(top: 14),
+                              child: const Text(
+                                "ARANSH",
+                                style: TextStyle(
+                                  fontSize: 35,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontStyle: FontStyle.italic,
+                                ),
+                              ),
+                            ),
+                            const Text(
+                              " J",
+                              style: TextStyle(
+                                fontSize: 55,
+                                color: Colors.white,
+                                fontStyle: FontStyle.italic,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                            Container(
+                              margin: const EdgeInsets.only(top: 14),
+                              child: const Text(
+                                "INDAL",
+                                style: TextStyle(
+                                  fontSize: 35,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                  fontStyle: FontStyle.italic,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 7,
+                        ),
+                        const Text(
+                          'Software Developer',
+                          style: TextStyle(fontSize: 25, color: Colors.white),
+                        ),
+                      ],
                     ),
                   )
                 ],
               ),
-              const SizedBox(
-                height: 7,
-              ),
-              const Text(
-                "ANDROID DEVELOPER",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 17,
-                ),
-              ),
-              const SizedBox(
-                height: 100,
-              )
             ],
           ),
         ),
