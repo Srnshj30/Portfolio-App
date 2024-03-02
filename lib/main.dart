@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_app/projects.dart';
 
 import 'about.dart';
 import 'home.dart';
@@ -15,10 +16,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: 'about',
+      initialRoute: 'home',
       routes: {
         'home': (context) => const MyHome(),
         'about': (context) => const MyAbout(),
+        'projects': (context) => const MyProjects(),
       },
     );
   }
