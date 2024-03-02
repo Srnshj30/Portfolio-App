@@ -74,6 +74,51 @@ class _MyHomeState extends State<MyHome> {
       backgroundColor: Colors.black,
       extendBodyBehindAppBar: true,
       appBar: AppBar(
+        leading: PopupMenuButton(
+          color: Colors.black,
+          icon: const Icon(
+            Icons.menu,
+            color: Colors.white,
+          ),
+          itemBuilder: (context) => [
+            PopupMenuItem(
+              value: 1,
+              child: TextButton(
+                child: const Text(
+                  'Home',
+                  style: TextStyle(color: Colors.white),
+                ),
+                onPressed: () {
+                  Navigator.pushNamed(context, 'home');
+                },
+              ),
+            ),
+            PopupMenuItem(
+              value: 2,
+              child: TextButton(
+                child: const Text(
+                  'Projects',
+                  style: TextStyle(color: Colors.white),
+                ),
+                onPressed: () {
+                  Navigator.pushNamed(context, 'projects');
+                },
+              ),
+            ),
+            PopupMenuItem(
+              value: 3,
+              child: TextButton(
+                child: const Text(
+                  'About Me',
+                  style: TextStyle(color: Colors.white),
+                ),
+                onPressed: () {
+                  Navigator.pushNamed(context, 'about');
+                },
+              ),
+            ),
+          ],
+        ),
         elevation: 0,
         backgroundColor: Colors.transparent,
         // title: const Text("SlidingUpPanelExample"),
